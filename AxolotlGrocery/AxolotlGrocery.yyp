@@ -1,5 +1,11 @@
 {
   "resources": [
+    {"id":{"name":"objManager","path":"objects/objManager/objManager.yy",},"order":2,},
+    {"id":{"name":"objDirection","path":"objects/objDirection/objDirection.yy",},"order":0,},
+    {"id":{"name":"sprCartPlaceholder","path":"sprites/sprCartPlaceholder/sprCartPlaceholder.yy",},"order":1,},
+    {"id":{"name":"objCart","path":"objects/objCart/objCart.yy",},"order":1,},
+    {"id":{"name":"sprDirection","path":"sprites/sprDirection/sprDirection.yy",},"order":0,},
+    {"id":{"name":"Font1","path":"fonts/Font1/Font1.yy",},"order":0,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
