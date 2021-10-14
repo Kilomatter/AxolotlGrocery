@@ -4,6 +4,7 @@ key_forward = keyboard_check(vk_up);
 key_backward = keyboard_check(vk_down);
 key_left = keyboard_check(vk_left);
 key_right = keyboard_check(vk_right);
+key_add = keyboard_check_pressed(vk_space);
 
 //Translate Input Into Movement Factors
 rotation_direction = (key_left - key_right);
@@ -47,9 +48,34 @@ else
 	y += y_motion_amount;
 }
 
-//Apply Motion
-
-
-
 //Animate Sprite
 image_index = (direction / 45 + 0.5);
+
+//Adding Items to Cart
+if (key_add and place_meeting(x, y, objFoodTileParent))
+{
+	var target_tile = instance_nearest(x, y, objFoodTileParent)
+	ds_list_add(objManager.cart, target_tile.food_type);
+}
+
+//Checking Out
+if (place_meeting(x,y,objCheckout) and objManager.order_is_complete == true)
+{
+	
+	//Clearing the Cart
+	while(ds_list_size(objManager.order) > 0)
+	{
+		var current_item = ds_list_find_value(objManager.order,0);
+		ds_list_delete(objManager.order,0);
+		
+		ds_list_delete(objManager.cart,ds_list_find_index(objManager.cart,current_item));
+	}
+	
+	//Regenerate Order
+	objManager.order_is_complete = false;
+	
+	for(var i = 0; i < objManager.order_length; i++;)
+	{
+		ds_list_add(objManager.order, objManager.food_pool[(irandom_range(0,array_length(objManager.food_pool)-1))]);
+	}
+}
