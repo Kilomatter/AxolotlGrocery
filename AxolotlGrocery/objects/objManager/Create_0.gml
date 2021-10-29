@@ -7,6 +7,7 @@ order = ds_list_create();
 
 order_length = 3;
 order_is_complete = false;
+order_time = 30 /* seconds */ * 60 /* frames */;
 
 for(var i = 0; i < order_length; i++;)
 {

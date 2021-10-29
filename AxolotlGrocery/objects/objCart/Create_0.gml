@@ -11,4 +11,6 @@ motion_amount = 0;
 x_motion_amount = 0;
 y_motion_amount = 0;
 
+slipping = false;
+
 image_speed = 0;

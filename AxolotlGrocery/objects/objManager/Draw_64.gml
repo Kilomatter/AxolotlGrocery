@@ -1,3 +1,4 @@
+draw_set_font(Font1);
 draw_set_halign(fa_left);
 
 var temp_order = ds_list_create();
@@ -29,11 +30,19 @@ for (var i = 0; i < ds_list_size(order); i++;)
 ds_list_destroy(temp_order);
 ds_list_destroy(temp_cart);
 
-draw_set_color(c_black);
+draw_set_color(c_grey);
 
 
 draw_set_halign(fa_right);
 for (var i = 0; i < ds_list_size(cart); i++)
 {
-	draw_text(room_width - 16, 16 * i, ds_list_find_value(cart,i));
+	draw_text(objCamera.view_width - 16, objCamera.view_height - (16 * i), ds_list_find_value(cart,i));
+}
+
+//Draw Time
+{
+	var mins = order_time div 3600;
+	var secs = floor((order_time mod 3600) / 60);
+	//var frames = whatnot
+	draw_text(objCamera.view_width - 16, 16, string(mins) + ":" + string(secs));
 }
