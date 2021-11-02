@@ -1,1 +1,3 @@
-food_type = "apple";
+food_type = 0;
+pickuppable = true;
+deletable = false;

@@ -23,7 +23,10 @@ if (!slipping)
 	
 	//Hitting a Slip Trap
 	if (place_meeting(x,y,objSlipHazard))
+	{
 		slipping = true;
+		spawn_dropped_food();
+	}
 }
 
 //Slipping
@@ -78,12 +81,18 @@ image_index = (direction / 45 + 0.5);
 if (key_add and place_meeting(x, y, objFoodTileParent))
 {
 	var target_tile = instance_nearest(x, y, objFoodTileParent)
-	ds_list_add(objManager.cart, target_tile.food_type);
-	
-	with instance_create_layer(x,y,"Instances",objFoodPickup)
+	if (target_tile.pickuppable == true)
 	{
-		//image_index = target_tile.food_type;
+		ds_list_add(objManager.cart, target_tile.food_type);
+	
+		with instance_create_layer(x,y,"Instances",objFoodPickup)
+		{
+			image_index = target_tile.food_type;
+		}
 	}
+	
+	if (target_tile.deletable == true)
+		instance_destroy(target_tile,0);
 }
 
 //Checking Out
@@ -105,6 +114,6 @@ if (place_meeting(x,y,objCheckout) and objManager.order_is_complete == true)
 	
 	for(var i = 0; i < objManager.order_length; i++;)
 	{
-		ds_list_add(objManager.order, objManager.food_pool[(irandom_range(0,array_length(objManager.food_pool)-1))]);
+		ds_list_add(objManager.order, (irandom_range(0,array_length(objManager.food_pool)-1)));
 	}
 }

@@ -9,3 +9,5 @@ if (order_time <= 0)
 }
 else
 	order_time --;
+
+//drop food

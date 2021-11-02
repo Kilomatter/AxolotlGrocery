@@ -3,6 +3,7 @@
     {"id":{"name":"objManager","path":"objects/objManager/objManager.yy",},"order":2,},
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},"order":9,},
     {"id":{"name":"objFood","path":"objects/objFood/objFood.yy",},"order":11,},
+    {"id":{"name":"Script1","path":"scripts/Script1/Script1.yy",},"order":0,},
     {"id":{"name":"objAppleTile","path":"objects/objAppleTile/objAppleTile.yy",},"order":0,},
     {"id":{"name":"sprWall","path":"sprites/sprWall/sprWall.yy",},"order":2,},
     {"id":{"name":"sprTiles","path":"sprites/sprTiles/sprTiles.yy",},"order":3,},

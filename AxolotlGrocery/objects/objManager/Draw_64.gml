@@ -24,7 +24,7 @@ for (var i = 0; i < ds_list_size(order); i++;)
 		order_is_complete = false;
 	}
 	
-	draw_text(8,16 * i, current_item);	
+	draw_text(8,16 * i, objManager.food_pool[current_item]);	
 }
 
 ds_list_destroy(temp_order);
@@ -36,13 +36,12 @@ draw_set_color(c_grey);
 draw_set_halign(fa_right);
 for (var i = 0; i < ds_list_size(cart); i++)
 {
-	draw_text(objCamera.view_width - 16, objCamera.view_height - (16 * i), ds_list_find_value(cart,i));
+	draw_text(objCamera.view_width - 16, objCamera.view_height - (16 * (i + 1)), food_pool[ds_list_find_value(cart,i)]);
 }
 
 //Draw Time
 {
 	var mins = order_time div 3600;
 	var secs = floor((order_time mod 3600) / 60);
-	//var frames = whatnot
 	draw_text(objCamera.view_width - 16, 16, string(mins) + ":" + string(secs));
 }
