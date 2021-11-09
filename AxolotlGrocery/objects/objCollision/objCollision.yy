@@ -1,16 +1,10 @@
 {
-  "spriteId": {
-    "name": "sprWall",
-    "path": "sprites/sprWall/sprWall.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": {
-    "name": "objCollision",
-    "path": "objects/objCollision/objCollision.yy",
-  },
+  "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -31,7 +25,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objWall",
+  "name": "objCollision",
   "tags": [],
   "resourceType": "GMObject",
 }

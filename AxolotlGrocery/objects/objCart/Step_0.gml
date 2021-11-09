@@ -22,7 +22,7 @@ if (!slipping)
 	motion_amount = lerp(motion_amount, motion_direction * top_speed, 0.05);
 	
 	//Hitting a Slip Trap
-	if (place_meeting(x,y,objSlipHazard))
+	if (place_meeting(x,y,objSlipHazard) and slippable)
 	{
 		slipping = true;
 		spawn_dropped_food();
@@ -34,20 +34,25 @@ if (slipping)
 {
 	motion_amount -= 0.03;
 	
-	if (motion_amount <= 0)
+	if (abs(motion_amount <= 0.06))
 	{
+		if (place_meeting(x,y,objSlipHazard))
+			slippable = false;
 		slipping = false;
 	}
 }
+
+if (not slippable and not(place_meeting(x,y,objSlipHazard)))
+	slippable = true;
 
 //Calculate Motion 2
 x_motion_amount = lengthdir_x(motion_amount, direction);
 y_motion_amount = lengthdir_y(motion_amount, direction);
 
 //Check for Collisions
-if (place_meeting(x + x_motion_amount, y, objWall))
+if (place_meeting(x + x_motion_amount, y, objCollision))
 {
-	while(!place_meeting(x + sign(x_motion_amount), y, objWall))
+	while(!place_meeting(x + sign(x_motion_amount), y, objCollision))
 	{
 		x += sign(x_motion_amount);
 	}
@@ -59,9 +64,9 @@ else
 	x += x_motion_amount;
 }
 	
-if (place_meeting(x, y + y_motion_amount, objWall))
+if (place_meeting(x, y + y_motion_amount, objCollision))
 {
-	while(!place_meeting(x, y + sign(y_motion_amount), objWall))
+	while(!place_meeting(x, y + sign(y_motion_amount), objCollision))
 	{
 		y += sign(y_motion_amount);
 	}
@@ -85,7 +90,7 @@ if (key_add and place_meeting(x, y, objFoodTileParent))
 	{
 		ds_list_add(objManager.cart, target_tile.food_type);
 	
-		with instance_create_layer(x,y,"Instances",objFoodPickup)
+		with instance_create_layer(x,y,"UI",objFoodPickup)
 		{
 			image_index = target_tile.food_type;
 		}
@@ -117,3 +122,6 @@ if (place_meeting(x,y,objCheckout) and objManager.order_is_complete == true)
 		ds_list_add(objManager.order, (irandom_range(0,array_length(objManager.food_pool)-1)));
 	}
 }
+
+//Update Depth
+depth = -y;

@@ -1,5 +1,5 @@
 dir = random_range(0,360);
-spd = 3;
+spd = 10;
 pickuppable = false;
 deletable = true;
 
