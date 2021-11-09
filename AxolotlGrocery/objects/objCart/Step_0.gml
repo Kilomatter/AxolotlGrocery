@@ -83,9 +83,9 @@ else
 image_index = (direction / 45 + 0.5);
 
 //Adding Items to Cart
-if (key_add and place_meeting(x, y, objFoodTileParent))
+if (key_add and place_meeting(x, y, objFoodParent))
 {
-	var target_tile = instance_nearest(x, y, objFoodTileParent)
+	var target_tile = instance_nearest(x, y, objFoodParent)
 	if (target_tile.pickuppable == true)
 	{
 		ds_list_add(objManager.cart, target_tile.food_type);

@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "sprBananaTile",
-    "path": "sprites/sprBananaTile/sprBananaTile.yy",
+    "name": "sprFood",
+    "path": "sprites/sprFood/sprFood.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objFoodParent",
+    "path": "objects/objFoodParent/objFoodParent.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -26,11 +29,11 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "FoodTiles",
-    "path": "folders/Objects/FoodTiles.yy",
+    "name": "Objects",
+    "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objBananaTile",
+  "name": "objFoodTile",
   "tags": [],
   "resourceType": "GMObject",
 }
