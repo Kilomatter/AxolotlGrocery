@@ -26,6 +26,7 @@ if (!slipping)
 	{
 		slipping = true;
 		spawn_dropped_food();
+		audio_play_sound(sfxSpinOut,0,false);
 	}
 }
 
@@ -94,6 +95,8 @@ if (key_add and place_meeting(x, y, objFoodParent))
 		{
 			image_index = target_tile.food_type;
 		}
+		
+		audio_play_sound(sfxItemGain,0,false);
 	}
 	
 	if (target_tile.deletable == true)
@@ -103,6 +106,7 @@ if (key_add and place_meeting(x, y, objFoodParent))
 //Checking Out
 if (place_meeting(x,y,objCheckout) and objManager.order_is_complete == true)
 {
+	audio_play_sound(sfxOrderComplete,0,false);
 	
 	//Clearing the Cart
 	while(ds_list_size(objManager.order) > 0)
