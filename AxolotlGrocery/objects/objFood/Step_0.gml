@@ -3,18 +3,18 @@
 xdist = lengthdir_x(spd,dir);
 ydist = lengthdir_y(spd,dir);
 
-if (place_meeting(x + xdist, y, objWall))
+if (place_meeting(x + xdist, y, objCollision))
 {
-	while (not place_meeting(x + sign(xdist), y, objWall))
+	while (not place_meeting(x + sign(xdist), y, objCollision))
 		x += sign(xdist);
 }
 else
 	x += xdist;
 	
 
-if (place_meeting(x, y + ydist, objWall))
+if (place_meeting(x, y + ydist, objCollision))
 {
-	while (not place_meeting(x, y + sign(ydist), objWall))
+	while (not place_meeting(x, y + sign(ydist), objCollision))
 		y += sign(ydist);
 }
 else

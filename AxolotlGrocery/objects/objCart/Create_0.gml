@@ -13,5 +13,6 @@ y_motion_amount = 0;
 
 slipping = false;
 slippable= true;
+collided = false;
 
 image_speed = 0;

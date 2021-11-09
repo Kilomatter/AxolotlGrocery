@@ -57,8 +57,15 @@ if (place_meeting(x + x_motion_amount, y, objCollision))
 	{
 		x += sign(x_motion_amount);
 	}
-	//x_motion_amount = 0;
-	//motion_direction = 0;
+	
+	if (motion_amount > 1 and abs(x_motion_amount) > abs(y_motion_amount))
+	{
+		collided = true;
+		spawn_dropped_food();
+		x_motion_amount *= -1;
+		audio_play_sound(sfxCartBump,0,false);
+		motion_amount *= -1;
+	}
 }
 else
 {
@@ -73,11 +80,23 @@ if (place_meeting(x, y + y_motion_amount, objCollision))
 	}
 	//y_motion_amount = 0;
 	motion_direction = 0;
+	
+	if (motion_amount > 1 and abs(y_motion_amount) > abs(x_motion_amount))
+	{
+		collided = true;
+		spawn_dropped_food();
+		x_motion_amount *= -1;
+		audio_play_sound(sfxCartBump,0,false);
+		motion_amount *= -1;
+	}
 }
 else
 {
 	y += y_motion_amount;
 }
+
+//Hitting a wall
+
 
 
 //Animate Sprite

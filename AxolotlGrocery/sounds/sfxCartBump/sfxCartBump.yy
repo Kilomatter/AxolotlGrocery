@@ -10,8 +10,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "sfxCartBump",
-  "duration": 0.0,
+  "soundFile": "sfxCartBump.wav",
+  "duration": 0.827596,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
