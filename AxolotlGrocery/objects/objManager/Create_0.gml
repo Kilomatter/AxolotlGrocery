@@ -1,6 +1,6 @@
 //Create the food pool
 food_pool[3] = "strawberry";
-food_pool[2] = "cheery";
+food_pool[2] = "cherry";
 food_pool[1] = "bananas";
 food_pool[0] = "apple";
 

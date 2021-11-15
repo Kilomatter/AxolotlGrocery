@@ -10,4 +10,6 @@ if (cooldown <= 0)
 }
 else
 	cooldown--;
+	
+depth = -objCart.y;
 
